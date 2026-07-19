@@ -11,7 +11,7 @@ Kotlin Multiplatform app for beginners — add workout locations, get AI recomme
 
 - **OpenStreetMap** — real map tiles (CartoDB Voyager) with pan and zoom
 - **Place markers with icons** — colored pins: 🌳 park, 🏟 stadium, 💪 gym, 🏃 street
-- **Add places** — name, type, description; coordinates set automatically
+- **Add places** — name, type, description; coordinates set automatically from crosshair
 - **Navigate to place** — 📍 button centers the map on the selected place
 - **Delete places** — with confirmation dialog
 - **AI recommendations** — 12 built-in rules (time of day + weather + activity history)
@@ -25,11 +25,18 @@ Kotlin Multiplatform app for beginners — add workout locations, get AI recomme
 | Component | Technology |
 |---|---|
 | UI | Compose Multiplatform 1.7.1 |
-| Map | OpenStreetMap (CartoDB tiles) |
+| Map | OpenStreetMap (CartoDB Voyager tiles) |
 | Storage | SQLDelight 2.0.2 |
 | Serialization | kotlinx.serialization |
 | Networking | java.net.HttpURLConnection |
 | Testing | Kotest 5.9.1 |
+
+### Tile Providers
+
+CartoDB Voyager chosen after testing alternatives:
+- **Yandex Maps** — tile servers (`vec0*.maps.yandex.net`) not accessible outside Russia (DNS NXDOMAIN)
+- **Mapbox** — public demo token expired, requires paid API key
+- **CartoDB Voyager** — free, no key required, works globally, fast
 
 ## Build & Run
 
@@ -131,11 +138,18 @@ Kotlin Multiplatform приложение для начинающих — доб
 | Компонент | Технология |
 |---|---|
 | UI | Compose Multiplatform 1.7.1 |
-| Карта | OpenStreetMap (CartoDB тайлы) |
+| Карта | OpenStreetMap (CartoDB Voyager тайлы) |
 | Хранение | SQLDelight 2.0.2 |
 | Сериализация | kotlinx.serialization |
 | Сеть | java.net.HttpURLConnection |
 | Тесты | Kotest 5.9.1 |
+
+### Тайл-провайдеры
+
+CartoDB Voyager выбран после тестирования альтернатив:
+- **Яндекс Карты** — тайловые серверы (`vec0*.maps.yandex.net`) недоступны за пределами России (DNS NXDOMAIN)
+- **Mapbox** — демо-токен истёк, требует платный API-ключ
+- **CartoDB Voyager** — бесплатно, без ключа, работает глобально, быстрые тайлы
 
 ## Сборка и запуск
 
